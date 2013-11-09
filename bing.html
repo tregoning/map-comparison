@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bing</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+<script src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
+<script>
+    (function () {
+        navigator.geolocation.getCurrentPosition(function (position) {
+
+            var pos = new Microsoft.Maps.Location(position.coords.latitude, position.coords.longitude);
+
+            var map = new Microsoft.Maps.Map(document.getElementById("map"), {
+                    credentials: "AlULkNoVQ4QLzEE9t1hkDu6RTH5OBvfD06zW9Zq57_Ocy1Rszhx2FfsfUwgGTSQM",
+                    disableBirdseye: true,
+                    enableClickableLogo: false,
+                    enableSearchLogo: false,
+                    showDashboard: false,
+                    showMapTypeSelector: false,
+                    showScalebar: false,
+                    mapTypeId: Microsoft.Maps.MapTypeId.road,
+                    zoom: 16,
+                    center: pos
+            });
+
+            var pin = new Microsoft.Maps.Pushpin(pos);
+            map.entities.push(pin);
+
+        });
+
+    }());
+</script>
+</body>
+</html>

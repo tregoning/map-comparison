@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Google</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyB-Tg0SfZ9kJVwh8dirWwN6rnt0L2Sz4ts&sensor=true"></script>
+<script>
+    (function () {
+        navigator.geolocation.getCurrentPosition(function (position) {
+
+            var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 16,
+                center: pos,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                streetViewControl: false,
+                disableDefaultUI: true
+            });
+
+            var marker = new google.maps.Marker({
+                map: map,
+                position: pos
+            });
+
+        });
+    }());
+</script>
+</body>
+</html>

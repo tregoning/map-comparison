@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Geo Helper page</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+
+    	h1{
+    		font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    		text-align: center;
+    		font-weight: normal;
+    		color: #000;
+    	}
+
+    </style>
+</head>
+<body>
+    <h1>Helper/placeholder page to enable geolocation. (useful when testing with no-cache in incognito mode)</h1>
+<script>
+    (function () {
+        navigator.geolocation.getCurrentPosition(function (position) {});
+    }());
+</script>
+</body>
+</html>
